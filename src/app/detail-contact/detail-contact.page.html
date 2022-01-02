@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>DetailContact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" *ngIf="contact">
+  <form  (ngSubmit)="updateContact()">
+  <ion-item>
+    <ion-label>Nom</ion-label>
+    <ion-input type="text"   [(ngModel)]="contact.nom" name="nom" value="{{contact.nom}}" disabled="{{IsunLocked}}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Prenom</ion-label>
+    <ion-input
+      type="text"
+      value="{{contact.prenom}}"
+     disabled="{{IsunLocked}}"
+     [(ngModel)]="contact.prenom" name="prenom"
+     
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input
+      type="email"
+      value="{{contact.email}}"
+      disabled="{{IsunLocked}}"
+      [(ngModel)]="contact.email"
+       name="email"
+     
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Tel</ion-label>
+    <ion-input type="Tel" [(ngModel)]="contact.tel" name="tel" value="{{contact.tel}}"  disabled="{{IsunLocked}}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Adresse</ion-label>
+    <ion-input
+      type="text"
+      value="{{contact.adresse}}"
+      disabled="{{IsunLocked}}"
+      [(ngModel)]="contact.adresse" name="adresse"
+     
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Ville</ion-label>
+    <ion-input
+      type="text"
+      value="{{contact.ville}}"
+      disabled="{{IsunLocked}}"
+      [(ngModel)]="contact.ville" name="ville"
+      
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Service</ion-label>
+    <ion-input
+      type="text"
+      value="{{contact.service}}"
+      disabled="{{IsunLocked}}"
+      [(ngModel)]="contact.service" name="service"
+     
+    ></ion-input>
+  </ion-item>
+  <div class="yourCssClass" *ngIf="this.isButtonsVisible" >
+    <ion-button expand="block" fill="outline" (click)="Modifier()">Modifier</ion-button>
+    <ion-button expand="block" fill="outline" (click)="Supprimer()">Supprimer</ion-button>
+    <ion-button expand="block" fill="outline" (click)="Partager()">Partager</ion-button>
+    <ion-button expand="block" fill="outline" *ngIf="!this.IsunLocked" type="ngSubmit">save</ion-button>
+  </div>
+  </form>
+</ion-content>
